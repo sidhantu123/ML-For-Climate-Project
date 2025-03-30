@@ -11,3 +11,11 @@ We are also exploring the possibility of adding more features to our model which
 Sunday March 02 2025
 
 This week, we explored potential additional data sources to enhance our model features, including satellite-derived datasets. One promising platform we identified was Bhuvan ([Indian Geo-Platform of ISRO](https://bhuvan-app1.nrsc.gov.in/2dresources/bhuvanstore2.php)), where we reviewed several datasets under Atmospheric and Climate Sciences Products. In particular, we noted datasets such as Cloud Cover (V2)-INSAT-3D at 4KM resolution (half-hourly), Derived Tropospheric Ozone (daily), and Planetary Boundary Layer Height (daily). These datasets are available over the same time span as our primary "Air Quality Data in India (2015 - 2020)" dataset and offer complementary features that could significantly improve our predictive models. Cloud cover data can help us understand the effects of solar radiation and atmospheric stability, while the Planetary Boundary Layer Height (PBLH) provides insights into pollutant mixing and vertical transport. Additionally, tropospheric ozone levels are crucial for modeling the formation and movement of secondary pollutants. The combination of different temporal resolutions, half-hourly for cloud cover and daily for both tropospheric ozone and PBLH, will allow us to capture both short-term fluctuations and long-term trends in air quality.
+
+Sunday March 19 2025
+
+Sidhant conducted exploratory data analysis on all features related to the AQI dataset in preparation for creating ML models.
+
+Sunday March 30 2025
+
+Explored additional features in the Bhuvan dataset and concatenated all files for cloud cover and other datasets for urban sprawl into a CSV file containing information on cloud cover by city for every day of the year
