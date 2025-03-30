@@ -18,4 +18,4 @@ Sidhant conducted exploratory data analysis on all features related to the AQI d
 
 Sunday March 30 2025
 
-Explored additional features in the Bhuvan dataset and concatenated all files for cloud cover and other datasets for urban sprawl into a CSV file containing information on cloud cover by city for every day of the year
+Explored additional features in the Bhuvan dataset and concatenated all files for cloud cover and other datasets for urban sprawl into a CSV file containing information on cloud cover by city for every day of the year. We aim to engineer more useful features besides the ones in the AQI dataset before creating our ML models.
