@@ -19,3 +19,17 @@ Sidhant conducted exploratory data analysis on all features related to the AQI d
 Sunday March 30 2025
 
 Explored additional features in the Bhuvan dataset and concatenated all files for cloud cover and other datasets for urban sprawl into a CSV file containing information on cloud cover by city for every day of the year. We aim to engineer more useful features besides the ones in the AQI dataset before creating our ML models.
+
+Saturday April 5 2025
+
+Data Preparation: 
+- Used city-level air quality data with pollutant measurements
+- Features (FOR THE TIME BEING): PM2.5, PM10, NO, NO2, NOx, NH3, CO, SO2, O3
+
+Dataset Structure
+- Created custom PyTorch Dataset class (AQIDataset)
+- Split data into training (80%) and testing (20%) sets
+
+Created very basic CNN(will continue to refine today and create more models) for predicting AQI on a city by city basis
+
+Created Evaluation Metrics Method
