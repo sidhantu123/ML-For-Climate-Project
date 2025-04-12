@@ -33,3 +33,7 @@ Dataset Structure
 Created very basic CNN(will continue to refine today and create more models) for predicting AQI on a city by city basis
 
 Created Evaluation Metrics Method
+
+Saturday April 12 2025
+
+Added more data for UV Index, Cloud Cover, Radiation, and daily temperature for all cities. Continuing to develop and improve models for predicting AQI. We intend to also add Support Vector Regression and 
