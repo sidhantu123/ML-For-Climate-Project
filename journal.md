@@ -22,7 +22,7 @@ Explored additional features in the Bhuvan dataset and concatenated all files fo
 
 Saturday April 5 2025
 
-Data Preparation: 
+Data Preparation:
 - Used city-level air quality data with pollutant measurements
 - Features (FOR THE TIME BEING): PM2.5, PM10, NO, NO2, NOx, NH3, CO, SO2, O3
 
@@ -36,4 +36,9 @@ Created Evaluation Metrics Method
 
 Saturday April 12 2025
 
-Added more data for UV Index, Cloud Cover, Radiation, and daily temperature for all cities. Continuing to develop and improve models for predicting AQI. We intend to also add Support Vector Regression and 
+Added more data for UV Index, Cloud Cover, Radiation, and daily temperature for all cities. Continuing to develop and improve models for predicting AQI. We intend to also add Support Vector Regression and
+
+Saturday April 19 2025
+- Restructure files to redlect the structure mentioned in the guidelines.
+- Implemented data preprocessing
+- Implemented baselined models for air quality prediction
