@@ -42,3 +42,14 @@ Saturday April 19 2025
 - Restructure files to redlect the structure mentioned in the guidelines.
 - Implemented data preprocessing
 - Implemented baselined models for air quality prediction
+
+Saturday April 26 2025
+Created series of machine learning models (Linear Regression, Ridge, Lasso), and experimented with Ensemble Models. Started working on video presentation and creating related graphs
+
+Saturday May 3 2025
+Created all machine learning models and trained, created all plots and measured performance, expanded on CNN architectures to create Small, Medium, Large, each with more complex arhcitecture. Also created LSTM Model
+
+Saturday May 10 2025
+Wrote rough draft of paper and added LSTM model with cross validation to add to paper
+
+
