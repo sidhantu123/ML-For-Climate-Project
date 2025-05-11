@@ -1,0 +1,49 @@
+Model,City,RMSE (Val),MAE (Val),R2 (Val),RMSE (Test),MAE (Test),R2 (Test)
+Persistence,delhi,53.26,39.08,0.79,45.1,31.56,0.84
+Persistence,hyderabad,14.05,10.56,0.72,14.22,9.86,0.84
+Persistence,chennai,36.89,23.73,0.27,27.24,16.41,0.43
+Persistence,bengaluru,17.74,12.56,0.51,11.32,7.91,0.67
+Linear Regression,delhi,34.59,26.79,0.91,33.56,24.28,0.91
+Linear Regression,hyderabad,17.39,14.73,0.57,19.27,15.54,0.71
+Linear Regression,chennai,25.37,19.92,0.65,30.14,23.43,0.29
+Linear Regression,bengaluru,21.93,18.32,0.26,17.99,15.81,0.16
+Ridge,delhi,34.2,26.47,0.91,33.17,23.98,0.91
+Ridge,hyderabad,17.22,14.66,0.58,18.57,14.82,0.73
+Ridge,chennai,25.52,19.78,0.65,28.9,22.14,0.35
+Ridge,bengaluru,21.93,18.33,0.26,18,15.81,0.16
+Lasso,delhi,32.2,23.49,0.92,33.78,23.75,0.91
+Lasso,hyderabad,17,14.49,0.59,17.74,14.01,0.75
+Lasso,chennai,25.14,20.17,0.66,25.27,19.65,0.5
+Lasso,bengaluru,22.52,18.81,0.22,18.59,16.58,0.1
+Random Forest,delhi,29.02,21.79,0.94,29.51,23.63,0.93
+Random Forest,hyderabad,11.44,9.24,0.81,15.63,12.93,0.81
+Random Forest,chennai,24.16,17.96,0.69,19.69,13.95,0.7
+Random Forest,bengaluru,14.63,11.48,0.67,9.14,6.75,0.78
+Gradient Boosting,delhi,29.36,21.22,0.94,27.61,21.07,0.94
+Gradient Boosting,hyderabad,9.95,7.81,0.86,13.74,11.55,0.85
+Gradient Boosting,chennai,23.46,17.85,0.7,22.48,17.5,0.61
+Gradient Boosting,bengaluru,16.24,12.72,0.59,10.49,8.22,0.71
+XGBoost,delhi,29.46,21.22,0.94,28.24,20.88,0.94
+XGBoost,hyderabad,9.59,7.68,0.87,15.44,12.32,0.81
+XGBoost,chennai,23.38,17.71,0.71,22.81,17.79,0.6
+XGBoost,bengaluru,16.3,12.69,0.59,10.36,8.16,0.72
+SVR,delhi,31.48,23.16,0.93,32.12,23.02,0.92
+SVR,hyderabad,14.49,12.13,0.7,15.86,12.22,0.8
+SVR,chennai,28.29,21.83,0.57,31.46,23.55,0.23
+SVR,bengaluru,19.58,15.83,0.41,16.32,14.34,0.31
+small_cnn,delhi,31.97,24.99,0.92,32.7,24.17,0.92
+medium_cnn,delhi,37.69,31.06,0.9,34.82,28.51,0.91
+large_cnn,delhi,33.28,26.28,0.92,32.63,25.68,0.92
+small_cnn,bengaluru,18.11,13.64,0.49,11.85,8.53,0.63
+medium_cnn,bengaluru,16.11,12.2,0.6,12.02,9.4,0.62
+large_cnn,bengaluru,15.64,11.86,0.62,11.78,9.04,0.64
+small_cnn,chennai,26.08,19.68,0.63,22.58,17.1,0.6
+medium_cnn,chennai,26.07,18.9,0.63,22.36,16.61,0.61
+large_cnn,chennai,25.21,19.5,0.66,23.77,18.83,0.56
+small_cnn,hyderabad,14.19,10.8,0.71,16.5,12.94,0.78
+medium_cnn,hyderabad,14.39,11.04,0.71,19.15,16.34,0.71
+large_cnn,hyderabad,12.87,10.34,0.76,17.47,14.75,0.76
+LSTM,delhi,23.62,18.45,0.96,22.7,16.73,0.96
+LSTM,hyderabad,15.19,12.61,0.67,13.25,10.17,0.86
+LSTM,chennai,21.5,16.42,0.75,23.88,18.72,0.55
+LSTM,bengaluru,21.28,17.8,0.28,16.21,13.65,0.32

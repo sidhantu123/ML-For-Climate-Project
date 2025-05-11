@@ -121,32 +121,67 @@ def prepare_lstm_data(city_data, sequence_length=7, target_scaler=None):
     )
 
 
-def calculate_lstm_feature_importance(model, X_val, feature_names):
-    """Calculate feature importance for LSTM model"""
+def calculate_lstm_feature_importance(
+    model, X_val, y_val, feature_names, n_permutations=10
+):
+    """Calculate permutation importance for LSTM model"""
     device = next(model.parameters()).device
     X_val = X_val.to(device)
+    y_val = y_val.to(device)
 
-    # Get baseline prediction
+    # Get baseline performance
     with torch.no_grad():
         baseline_pred = model(X_val)
+    baseline_rmse = torch.sqrt(torch.mean((baseline_pred.squeeze() - y_val) ** 2))
 
     # Calculate importance for each feature
     importance = {}
     for i, feature in enumerate(feature_names):
-        # Create perturbed input
-        X_perturbed = X_val.clone()
-        X_perturbed[:, :, i] = 0  # Zero out the feature
+        # Store original performance changes
+        performance_changes = []
+
+        for _ in range(n_permutations):
+            # Create perturbed input by shuffling the feature
+            X_perturbed = X_val.clone()
+            shuffled_indices = torch.randperm(X_perturbed.size(0))
+            X_perturbed[:, :, i] = X_perturbed[shuffled_indices, :, i]
 
         # Get prediction with perturbed input
         with torch.no_grad():
             perturbed_pred = model(X_perturbed)
 
-        # Calculate importance as the difference in predictions
-        importance[feature] = float(
-            torch.mean(torch.abs(baseline_pred - perturbed_pred)).item()
-        )
+            # Calculate performance change
+            perturbed_rmse = torch.sqrt(
+                torch.mean((perturbed_pred.squeeze() - y_val) ** 2)
+            )
+            performance_changes.append((perturbed_rmse - baseline_rmse).item())
+
+        # Importance is the mean performance degradation
+        importance[feature] = np.mean(performance_changes)
 
     return importance
+
+
+def plot_feature_importance(feature_importance, city_name):
+    """Plot feature importance scores"""
+    # Sort features by importance
+    sorted_features = dict(
+        sorted(feature_importance.items(), key=lambda x: x[1], reverse=True)
+    )
+
+    # Create the plot
+    plt.figure(figsize=(12, 6))
+    features = list(sorted_features.keys())
+    importance = list(sorted_features.values())
+
+    # Create horizontal bar plot
+    plt.barh(range(len(features)), importance, align="center")
+    plt.yticks(range(len(features)), features)
+    plt.xlabel("Feature Importance Score")
+    plt.title(f"Feature Importance for {city_name.title()}")
+    plt.tight_layout()
+
+    return plt.gcf()
 
 
 def save_lstm_results(city_name, results, feature_importance, model):
@@ -171,6 +206,11 @@ def save_lstm_results(city_name, results, feature_importance, model):
     # Generate and save visualizations
     plot_metrics_comparison(city_name, results)
     plt.savefig(f"{results_dir}/metrics_comparison.png", bbox_inches="tight", dpi=300)
+    plt.close()
+
+    # Plot and save feature importance
+    plot_feature_importance(feature_importance, city_name)
+    plt.savefig(f"{results_dir}/feature_importance.png", bbox_inches="tight", dpi=300)
     plt.close()
 
     for split in ["val", "test"]:
@@ -251,7 +291,7 @@ def plot_loss_curves(train_losses, val_losses):
     plt.legend()
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    plt.show()
+    # plt.show()
 
 
 def plot_pred_vs_actual_scatter(predictions, actuals, city, split):
@@ -263,7 +303,7 @@ def plot_pred_vs_actual_scatter(predictions, actuals, city, split):
     plt.title(f"Predicted vs Actual AQI Values ({city.title()} - {split})")
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    plt.show()
+    # plt.show()
 
 
 def print_feature_variance(city_data, split="train"):
@@ -338,7 +378,7 @@ def overfit_small_batch(city_data, sequence_length=7, batch_size=8, epochs=200):
     plt.ylabel("Loss")
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    plt.show()
+    # plt.show()
     # Print predictions vs actuals (inverse transform)
     model.eval()
     with torch.no_grad():
@@ -516,7 +556,9 @@ def train_and_evaluate_lstm(
     }
     numeric_cols = city_data["train"].select_dtypes(include=[np.number]).columns
     numeric_cols = [col for col in numeric_cols if col != "AQI"]
-    feature_importance = calculate_lstm_feature_importance(model, X_val, numeric_cols)
+    feature_importance = calculate_lstm_feature_importance(
+        model, X_val, y_val, numeric_cols
+    )
     results = {
         "model": model,
         "val_metrics": val_metrics,
