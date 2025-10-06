@@ -26,7 +26,7 @@ This project is a machine learning solution built in Python. It includes data pr
 
 ## Technologies Used
 - Python 3.x
-- [pandas, numpy, sklearn]
+- [pandas, numpy, sklearn, pytorch]
 
 ## Getting Started
 To get a local copy up and running, follow these steps.
